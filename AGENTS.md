@@ -29,7 +29,7 @@ cd terraform && terraform init && terraform apply
 - Navy: `#1a1a2e` (`brand-navy`)
 
 ## Testing
-Use the `playwright-skill` to verify pages visually and check links. If Playwright isn't installed, ask the user to install it (`npx playwright install`).
+Use the `playwright-skill` to verify pages visually and check links. If Playwright isn't installed, ask the user to install it (`npx playwright install`), or install skill if it's not present.
 
 ## Notes
 - Contact form uses Formspree (ID needs configuration in `ContactForm.astro`)
