@@ -1,0 +1,67 @@
+---
+interface Props {
+  title: string;
+  highlight?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  showShapes?: boolean;
+}
+
+const {
+  title,
+  highlight,
+  subtitle,
+  ctaText = "Talk to Us",
+  ctaHref = "/contact",
+  showShapes = true
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div class="relative z-10">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy leading-tight">
+          {title}
+          {highlight && <span class="text-brand-teal"> {highlight}</span>}
+        </h1>
+        {subtitle && (
+          <p class="mt-6 text-lg text-brand-gray max-w-lg">
+            {subtitle}
+          </p>
+        )}
+        {ctaText && (
+          <div class="mt-8">
+            <a href={ctaHref} class="btn-primary">
+              {ctaText}
+            </a>
+          </div>
+        )}
+      </div>
+
+      <!-- Geometric Shapes -->
+      {showShapes && (
+        <div class="hidden md:block relative h-80 lg:h-96">
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 400" fill="none">
+            <!-- Teal half circle -->
+            <path d="M200 50 A75 75 0 0 1 200 200 L200 50" fill="#1a9dad" />
+            <!-- Orange circle -->
+            <circle cx="320" cy="120" r="50" fill="#f5a623" />
+            <!-- Navy half circle -->
+            <path d="M100 200 A60 60 0 0 1 100 320 L100 200" fill="#1a1a2e" />
+            <!-- Light teal circle -->
+            <circle cx="280" cy="280" r="70" fill="#1a9dad" opacity="0.7" />
+            <!-- Small orange circle -->
+            <circle cx="180" cy="320" r="35" fill="#f5a623" />
+            <!-- Navy rectangle with rounded corner -->
+            <rect x="50" cy="80" width="80" height="80" rx="40" fill="#1a1a2e" />
+            <!-- Light gray circle -->
+            <circle cx="350" cy="220" r="30" fill="#e5e7eb" />
+          </svg>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
