@@ -1,0 +1,16 @@
+# Copy to terraform.tfvars and fill in values
+# DO NOT commit terraform.tfvars
+
+cloudflare_account_id = "your-account-id-here"
+cloudflare_api_token  = "your-api-token-here"
+
+# To get your account ID:
+# - Go to Cloudflare dashboard → any domain → Overview
+# - Account ID is in the right sidebar
+
+# To create an API token:
+# - Go to https://dash.cloudflare.com/profile/api-tokens
+# - Create Token → Custom Token
+# - Permissions needed:
+#   - Account: Cloudflare Pages: Edit
+#   - Account: Account Settings: Read
