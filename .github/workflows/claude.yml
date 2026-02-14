@@ -47,6 +47,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           trigger_phrase: ""  # Respond to all issues, not just @claude mentions
+          show_full_output: true
           claude_args: "--model claude-opus-4-6 --allowedTools 'Bash(git:*),Bash(npm:*),Bash(npx:*),Bash(pkill:*),Bash(sleep:*),Bash(grep:*),Bash(cat:*),Bash(sed:*),Bash(gh:*),Edit,Write,Read'"
           prompt: |
             You are helping a non-technical founder make edits to their marketing website.
