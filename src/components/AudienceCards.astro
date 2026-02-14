@@ -1,0 +1,37 @@
+---
+const audiences = [
+  {
+    title: 'Child Care Resource and Referral (CCR&Rs)',
+    description: 'Replace legacy systems with a configurable, user-friendly platform for families to find care and manage coaching and training.',
+    image: '/images/partners/maryland-family-network.png',
+    href: '/case-studies#ccrr',
+  },
+  {
+    title: 'Government Organizations',
+    description: 'Centralize ECE data for automated reporting and modern dashboards.',
+    image: '/images/partners/denver-preschool-program.png',
+    href: '/case-studies#government',
+  },
+];
+---
+
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-8">
+      {audiences.map(audience => (
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div class="h-48 bg-brand-light flex items-center justify-center p-8">
+            <img src={audience.image} alt="" class="max-h-full w-auto" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-brand-navy mb-2">{audience.title}</h3>
+            <p class="text-brand-gray mb-4">{audience.description}</p>
+            <a href={audience.href} class="btn-secondary inline-block text-sm py-2 px-4">
+              Learn More
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+interface Props {
+  title?: string;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  title = "Let's Talk ECE Data!",
+  ctaText = "Contact Us",
+  ctaHref = "/contact"
+} = Astro.props;
+---
+
+<section class="py-16 bg-brand-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+      {title}
+    </h2>
+    <a href={ctaHref} class="btn-secondary">
+      {ctaText}
+    </a>
+  </div>
+</section>

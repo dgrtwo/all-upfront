@@ -1,0 +1,36 @@
+---
+import Testimonial from './Testimonial.astro';
+
+const testimonials = [
+  {
+    quote: "Technology should make lives easier- and that's exactly what Upfront does for Maryland families",
+    name: 'Laura Weeldreyer',
+    title: 'Executive Director',
+    company: 'Maryland Family Network',
+    image: '/images/testimonials/laura-weeldreyer.jpeg',
+  },
+  {
+    quote: "Upfront was a partner on every level- taking families, providers, and data into consideration for every decision",
+    name: 'Kayla Corbitt',
+    title: 'Founder',
+    company: 'Operation Child Care',
+    image: '/images/testimonials/kayla-corbitt.png',
+  },
+];
+---
+
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-sm font-semibold text-brand-teal uppercase tracking-wider text-center">
+      Testimonials
+    </p>
+    <h2 class="text-3xl md:text-4xl font-bold text-brand-navy text-center mt-2 mb-12">
+      Hear from our customers
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {testimonials.map(t => (
+        <Testimonial {...t} />
+      ))}
+    </div>
+  </div>
+</section>
