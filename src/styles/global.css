@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-brand-teal: #1a9dad;
+  --color-brand-orange: #f5a623;
+  --color-brand-navy: #1a1a2e;
+  --color-brand-gray: #4a5568;
+  --color-brand-light: #f8fafa;
+
+  /* Font Family */
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-brand-gray antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block bg-brand-orange text-white font-semibold px-6 py-3 rounded-full
+           hover:bg-opacity-90 hover:-translate-y-0.5 transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-block bg-brand-teal text-white font-semibold px-6 py-3 rounded-full
+           hover:bg-opacity-90 hover:-translate-y-0.5 transition-all duration-200;
+  }
+}
