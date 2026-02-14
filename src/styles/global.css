@@ -25,11 +25,11 @@
 @layer components {
   .btn-primary {
     @apply inline-block bg-brand-orange text-white font-semibold px-6 py-3 rounded-full
-           hover:bg-opacity-90 hover:-translate-y-0.5 transition-all duration-200;
+           hover:bg-brand-orange/90 hover:-translate-y-0.5 transition-all duration-200;
   }
 
   .btn-secondary {
     @apply inline-block bg-brand-teal text-white font-semibold px-6 py-3 rounded-full
-           hover:bg-opacity-90 hover:-translate-y-0.5 transition-all duration-200;
+           hover:bg-brand-teal/90 hover:-translate-y-0.5 transition-all duration-200;
   }
 }
