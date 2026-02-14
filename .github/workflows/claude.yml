@@ -52,6 +52,13 @@ jobs:
           prompt: |
             You are helping a non-technical founder make edits to their marketing website.
 
+            CURRENT TASK:
+            Issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}
+
+            ${{ github.event.issue.body }}
+
+            ---
+
             IMPORTANT RULES:
             1. Read the CLAUDE.md file first to understand the project structure and constraints.
             2. When processing a new issue, implement the requested changes on a new branch and open a PR.
