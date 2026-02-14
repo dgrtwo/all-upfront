@@ -51,7 +51,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           trigger_phrase: ""  # Respond to all issues, not just @claude mentions
           show_full_output: true
-          claude_args: "--model claude-sonnet-4-5-20250929 --allowedTools 'Bash(git:*),Bash(npm:*),Bash(npx:*),Bash(pkill:*),Bash(sleep:*),Bash(grep:*),Bash(cat:*),Bash(sed:*),Bash(gh:*),Edit,Write,Read'"
+          claude_args: "--model claude-sonnet-4-5-20250929 --allowedTools 'Bash(git:*),Bash(npm:*),Bash(npx:*),Bash(pkill:*),Bash(sleep:*),Bash(grep:*),Bash(cat:*),Bash(sed:*),Bash(gh:*),Bash(curl:*),Edit,Write,Read'"
           prompt: |
             You are helping a non-technical founder make edits to their marketing website.
 
@@ -67,10 +67,9 @@ jobs:
             2. Implement the requested changes.
             3. BEFORE opening a PR, you MUST test your changes:
                - Run "npm run build" to verify the site builds
-               - Start preview server: "npm run preview &" then "sleep 3"
+               - Start preview server in background using run_in_background:true parameter, then sleep 3
                - Screenshot the modified page with Playwright: "npx playwright screenshot http://localhost:4321/PAGE_PATH screenshot.png"
                - Verify the screenshot shows your changes correctly
-               - Kill the server: "pkill -f 'astro preview' || true"
             4. Create a new branch and open a PR linking back to the issue.
             5. Write PR descriptions in plain language - no technical jargon.
             6. Mention that Cloudflare will post a preview link for final review.
