@@ -44,7 +44,7 @@ const {
       <!-- Geometric Shapes -->
       {showShapes && (
         <div class="hidden md:block relative h-80 lg:h-96">
-          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 400" fill="none">
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 400" fill="none" aria-hidden="true" role="presentation">
             <!-- Teal half circle -->
             <path d="M200 50 A75 75 0 0 1 200 200 L200 50" fill="#1a9dad" />
             <!-- Orange circle -->
@@ -56,7 +56,7 @@ const {
             <!-- Small orange circle -->
             <circle cx="180" cy="320" r="35" fill="#f5a623" />
             <!-- Navy rectangle with rounded corner -->
-            <rect x="50" cy="80" width="80" height="80" rx="40" fill="#1a1a2e" />
+            <rect x="50" y="80" width="80" height="80" rx="40" fill="#1a1a2e" />
             <!-- Light gray circle -->
             <circle cx="350" cy="220" r="30" fill="#e5e7eb" />
           </svg>
