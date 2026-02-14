@@ -8,3 +8,9 @@ variable "cloudflare_account_id" {
   type        = string
   description = "Cloudflare account ID"
 }
+
+variable "anthropic_api_token" {
+  type        = string
+  description = "Anthropic API key for Claude Code GitHub Action"
+  sensitive   = true
+}

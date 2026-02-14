@@ -1,0 +1,70 @@
+name: Claude Code Site Editor
+
+on:
+  # Trigger on new issues
+  issues:
+    types: [opened]
+
+  # Trigger on issue and PR comments mentioning @claude
+  issue_comment:
+    types: [created]
+
+jobs:
+  claude:
+    # Only run on issues/comments that might be relevant
+    # - New issues (always process)
+    # - Comments that mention @claude
+    if: |
+      github.event_name == 'issues' ||
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude'))
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          model: claude-opus-4-6
+          # Custom prompt to handle approvals and merging
+          prompt: |
+            You are helping a non-technical founder make edits to their marketing website.
+
+            IMPORTANT RULES:
+            1. Read the CLAUDE.md file first to understand the project structure and constraints.
+            2. When processing a new issue, implement the requested changes on a new branch and open a PR.
+            3. Link the PR back to the original issue.
+            4. Write PR descriptions in plain language - no technical jargon.
+            5. Always mention that a preview link will be posted by Cloudflare so they can review.
+
+            APPROVAL AND MERGING:
+            If this is a comment and the commenter has used approval language like:
+            - "ship it"
+            - "looks good"
+            - "approved"
+            - "lgtm"
+            - "merge this"
+            - "go ahead"
+            - "good to go"
+            - "perfect"
+            - "great"
+            - "merge it"
+            - "let's ship"
+
+            Then you should:
+            1. Merge the PR using: gh pr merge --squash
+            2. Comment confirming the merge: "Merged! Your changes will be live at allupfront.com in a few minutes."
+
+            If the comment is NOT an approval (e.g., asking questions or requesting changes), respond helpfully and make any requested changes.
+
+            NEVER merge based on your own judgment - only merge when you detect explicit approval language from the user.
