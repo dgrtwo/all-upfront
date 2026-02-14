@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout title="Contact | Upfront" description="Get in touch with the Upfront team.">
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-brand-navy">Let's Talk!</h1>
+        <p class="mt-4 text-brand-gray">
+          We're here to help anytime. Fill out the form and we'll get back to you as soon as possible.
+        </p>
+      </div>
+      <ContactForm />
+    </div>
+  </section>
+</Layout>

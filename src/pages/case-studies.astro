@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const caseStudies = [
+  {
+    id: 'maryland',
+    title: 'Maryland Family Network',
+    description: 'Maryland Family Network partnered with Upfront to modernize their childcare search and referral system, serving thousands of Maryland families with real-time vacancy data and streamlined applications.',
+    outcomes: [
+      'Centralized data from multiple legacy systems',
+      'Real-time childcare vacancy tracking',
+      'Improved family search experience',
+    ],
+  },
+  {
+    id: 'north-carolina',
+    title: 'North Carolina',
+    description: 'North Carolina leveraged Upfront\'s platform to create a unified early childhood data system, enabling better coordination between state agencies and local providers.',
+    outcomes: [
+      'Statewide data integration',
+      'Automated reporting dashboards',
+      'Enhanced provider management',
+    ],
+  },
+  {
+    id: 'denver',
+    title: 'Denver Preschool Program',
+    description: 'Denver Preschool Program implemented Upfront to streamline their tuition credit program, making it easier for families to find and afford quality preschool options.',
+    outcomes: [
+      'Simplified family application process',
+      'Provider portal for program management',
+      'Data-driven program insights',
+    ],
+  },
+];
+---
+
+<Layout title="Case Studies | Upfront" description="See how Upfront helps organizations transform early childhood education data.">
+  <!-- Hero -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-brand-navy">Our Impact</h1>
+      <p class="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
+        See how organizations across the country are using Upfront to transform early childhood education data.
+      </p>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="py-8 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {caseStudies.map((study, index) => (
+        <article id={study.id} class={`py-12 ${index > 0 ? 'border-t border-gray-100' : ''}`}>
+          <h2 class="text-2xl font-bold text-brand-navy mb-4">{study.title}</h2>
+          <p class="text-brand-gray mb-6">{study.description}</p>
+          <div class="bg-brand-light rounded-xl p-6">
+            <h3 class="text-sm font-semibold text-brand-teal uppercase tracking-wider mb-4">Key Outcomes</h3>
+            <ul class="space-y-2">
+              {study.outcomes.map(outcome => (
+                <li class="flex items-start text-brand-gray">
+                  <svg class="w-5 h-5 text-brand-teal mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  {outcome}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>

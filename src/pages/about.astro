@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PartnerLogos from '../components/PartnerLogos.astro';
+import CTABanner from '../components/CTABanner.astro';
+---
+
+<Layout title="About | Upfront" description="A personal mission to make childcare accessible to all.">
+  <!-- Hero -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm font-semibold text-brand-teal uppercase tracking-wider">About Us</p>
+      <h1 class="mt-2 text-4xl md:text-5xl font-bold text-brand-navy">
+        A personal mission to make<br />
+        <span class="text-brand-teal">childcare accessible to all</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Our Vision -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-brand-navy mb-6">Our Vision</h2>
+      <p class="text-brand-gray mb-4">
+        Upfront is on a mission to bring accurate, comprehensive data to every person in early childhood—from families searching for care, to providers managing their programs, to policymakers shaping the systems that support them.
+      </p>
+      <p class="text-brand-gray">
+        We believe access to clear, real-time information is the foundation of a stronger, more equitable childcare system. Across the country, families struggle to find care, programs operate below capacity, and agencies lack the insights they need to make data-driven decisions. Upfront exists to fix that.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Team -->
+  <section class="py-16 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-brand-navy mb-6">Our Team</h2>
+      <p class="text-brand-gray mb-4">
+        We're a team of experienced technologists, data engineers, early educators, and product designers united by a shared goal: helping families access care.
+      </p>
+      <p class="text-brand-gray">
+        Our team brings expertise from across the tech, education, and public sectors—people who have built at scale, modernized legacy systems, and understand the human impact behind every dataset.
+      </p>
+    </div>
+  </section>
+
+  <!-- CEO Spotlight -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-2xl font-bold text-brand-navy mb-6">Meet Our CEO - Dana Levin-Robinson</h2>
+          <p class="text-brand-gray mb-4">
+            Dana witnessed firsthand the challenges a family faces when searching for her own childcare. As a parent, she wanted to empower families to make decisions quickly and seamlessly and saw an opportunity to bring data tools to the childcare space.
+          </p>
+          <p class="text-brand-gray">
+            She was previously the Chief of Staff at VirtualHealth, a growth-stage SaaS for Medicaid startup where she led operations, business development, and human resources. Dana saw how connecting databases into a single location improved decisions for every patient, provider, and payer.
+          </p>
+        </div>
+        <div class="flex justify-center">
+          <img
+            src="/images/team/dana-levin-robinson.png"
+            alt="Dana Levin-Robinson, CEO of Upfront"
+            class="rounded-2xl shadow-lg max-w-sm w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <PartnerLogos />
+  <CTABanner />
+</Layout>
