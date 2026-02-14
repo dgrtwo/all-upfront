@@ -1,0 +1,25 @@
+---
+const partners = [
+  { name: 'Child Care Resources Inc.', logo: '/images/partners/child-care-resources.png' },
+  { name: 'Maryland Family Network', logo: '/images/partners/maryland-family-network.png' },
+  { name: 'Child & Family Resources', logo: '/images/partners/child-family-resources.png' },
+  { name: 'Denver Preschool Program', logo: '/images/partners/denver-preschool-program.png' },
+];
+---
+
+<section class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-center text-2xl font-semibold text-gray-400 mb-10">
+      Our Innovative ECE Partners
+    </h2>
+    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+      {partners.map(partner => (
+        <img
+          src={partner.logo}
+          alt={partner.name}
+          class="h-12 md:h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+        />
+      ))}
+    </div>
+  </div>
+</section>

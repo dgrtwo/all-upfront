@@ -1,0 +1,29 @@
+---
+const integrations = [
+  'Licensing',
+  'Quality/QRIS',
+  'Childcare Resource and Referral (CCR&R)',
+  'Child Care Management Software (CCMS)',
+];
+---
+
+<section class="py-16 bg-brand-teal">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <h2 class="text-3xl md:text-4xl font-bold text-white">
+        A <em class="italic">single</em> database for a <em class="italic">single</em> source of truth.
+      </h2>
+      <p class="mt-6 text-white/90 text-lg">
+        Integrate every database including:
+      </p>
+      <ul class="mt-4 space-y-2">
+        {integrations.map(item => (
+          <li class="flex items-center text-white">
+            <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

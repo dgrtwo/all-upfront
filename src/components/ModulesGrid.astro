@@ -1,0 +1,27 @@
+---
+import ModuleCard from './ModuleCard.astro';
+
+const modules = [
+  { title: 'Family Search', description: 'Help families find real-time childcare vacancies in a single mobile-optimized site.' },
+  { title: 'Applications', description: 'Streamlined applications for families to determine eligibility and apply to programs.' },
+  { title: 'Call Referral', description: 'Help and track families find real-time childcare options in a SOC 2 certified platform.' },
+  { title: 'Professional Development', description: 'Manage training for providers including registration, enrollment, and reporting.' },
+  { title: 'Technical Assistance', description: 'Manage and track coaching plans, visits, and assessments with seamless reporting.' },
+  { title: 'Provider Portal', description: 'Allow providers to update program records, receive family messages, and register for training.' },
+  { title: 'Childcare Desert Maps', description: 'Visualize real-time childcare supply and demand gaps in regional detail.' },
+  { title: 'Employer Engagement', description: 'Support Employers with Childcare Concierge services and impact tracking.' },
+];
+---
+
+<section class="py-16 bg-brand-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-brand-navy text-center mb-4">
+      Modern. Modular. Integrated.
+    </h2>
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {modules.map(module => (
+        <ModuleCard title={module.title} description={module.description} />
+      ))}
+    </div>
+  </div>
+</section>
