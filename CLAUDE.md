@@ -76,7 +76,9 @@ npm run preview  # Preview build
 
 **Only modify:** `src/pages/`, `src/components/`, `src/layouts/`, `src/styles/`, `public/images/`
 
-**Never modify:** `package.json`, config files, `terraform/`, `.github/workflows/`, `CLAUDE.md`
+**Never modify (in a GitHub Action):** `package.json`, config files, `terraform/`, `.github/workflows/`, `CLAUDE.md`
+
+It is fine to edit the above if you're running locally, just not if you're triggered by the GitHub Action.
 
 **Rules:**
 - If a request is ambiguous, ask a clarifying question rather than guessing
