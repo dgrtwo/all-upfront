@@ -47,8 +47,8 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          model: claude-opus-4-6
-          # Custom prompt to handle approvals and merging
+          trigger_phrase: ""  # Respond to all issues, not just @claude mentions
+          claude_args: "--model claude-opus-4-6"
           prompt: |
             You are helping a non-technical founder make edits to their marketing website.
 
