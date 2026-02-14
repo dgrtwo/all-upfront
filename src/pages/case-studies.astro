@@ -8,30 +8,35 @@ const caseStudies = [
     title: 'Maryland Family Network',
     description: 'Maryland Family Network partnered with Upfront to modernize their childcare search and referral system, serving thousands of Maryland families with real-time vacancy data and streamlined applications.',
     outcomes: [
-      'Centralized data from multiple legacy systems',
-      'Real-time childcare vacancy tracking',
-      'Improved family search experience',
+      '2.5x more families connected to providers',
+      '6,400+ provider pages with real-time data',
+      'Digital presence for 60% of Maryland childcare programs',
     ],
+    href: '/case-studies/maryland-family-network',
+    logo: '/images/partners/maryland-family-network.png',
   },
   {
     id: 'north-carolina',
     title: 'North Carolina',
     description: 'North Carolina leveraged Upfront\'s platform to create a unified early childhood data system, enabling better coordination between state agencies and local providers.',
     outcomes: [
-      'Statewide data integration',
-      'Automated reporting dashboards',
-      'Enhanced provider management',
+      'Unified data across 100 counties',
+      '90% reduction in reporting time',
+      'Real-time capacity visibility statewide',
     ],
+    href: '/case-studies/north-carolina',
   },
   {
     id: 'denver',
     title: 'Denver Preschool Program',
     description: 'Denver Preschool Program implemented Upfront to streamline their tuition credit program, making it easier for families to find and afford quality preschool options.',
     outcomes: [
-      'Simplified family application process',
-      'Provider portal for program management',
-      'Data-driven program insights',
+      '40% faster application processing',
+      '300+ participating providers',
+      '95% provider portal adoption',
     ],
+    href: '/case-studies/denver-preschool-program',
+    logo: '/images/partners/denver-preschool-program.png',
   },
 ];
 ---
@@ -52,20 +57,33 @@ const caseStudies = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       {caseStudies.map((study, index) => (
         <article id={study.id} class={`py-12 ${index > 0 ? 'border-t border-gray-100' : ''}`}>
-          <h2 class="text-2xl font-bold text-brand-navy mb-4">{study.title}</h2>
-          <p class="text-brand-gray mb-6">{study.description}</p>
-          <div class="bg-brand-light rounded-xl p-6">
-            <h3 class="text-sm font-semibold text-brand-teal uppercase tracking-wider mb-4">Key Outcomes</h3>
-            <ul class="space-y-2">
-              {study.outcomes.map(outcome => (
-                <li class="flex items-start text-brand-gray">
-                  <svg class="w-5 h-5 text-brand-teal mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                  </svg>
-                  {outcome}
-                </li>
-              ))}
-            </ul>
+          <div class="flex items-start gap-6">
+            {study.logo && (
+              <img src={study.logo} alt="" class="h-12 w-auto hidden sm:block" />
+            )}
+            <div class="flex-1">
+              <h2 class="text-2xl font-bold text-brand-navy mb-4">{study.title}</h2>
+              <p class="text-brand-gray mb-6">{study.description}</p>
+              <div class="bg-brand-light rounded-xl p-6 mb-6">
+                <h3 class="text-sm font-semibold text-brand-teal uppercase tracking-wider mb-4">Key Outcomes</h3>
+                <ul class="space-y-2">
+                  {study.outcomes.map(outcome => (
+                    <li class="flex items-start text-brand-gray">
+                      <svg class="w-5 h-5 text-brand-teal mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      {outcome}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a href={study.href} class="inline-flex items-center text-brand-teal font-medium hover:underline">
+                Read Full Case Study
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
           </div>
         </article>
       ))}
