@@ -31,6 +31,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium
+
       - name: Run Claude Code
         uses: anthropics/claude-code-action@v1
         with:
@@ -46,6 +58,8 @@ jobs:
             3. Link the PR back to the original issue.
             4. Write PR descriptions in plain language - no technical jargon.
             5. Always mention that a preview link will be posted by Cloudflare so they can review.
+            6. After making changes, run "npm run build" to verify the site builds successfully.
+            7. Optionally use Playwright to screenshot pages and verify changes visually. Playwright is pre-installed.
 
             APPROVAL AND MERGING:
             If this is a comment and the commenter has used approval language like:
