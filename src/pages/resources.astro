@@ -6,33 +6,32 @@ const resources = [
   {
     category: 'Case Study',
     title: 'Behind North Carolina\'s New Data Platform Powered by Upfront',
-    href: '/case-studies/north-carolina',
+    href: '/resources/north-carolina-upfront',
   },
   {
     category: 'Case Study',
     title: 'Denver Preschool Program Launches New Application and Online Search',
-    href: '/case-studies/denver-preschool-program',
+    href: '/resources/dpplaunch',
   },
   {
     category: 'Press',
     title: 'Childcare Databases in The Washington Post',
-    href: '#',
-    external: true,
+    href: '/resources/washpo',
   },
   {
     category: 'Policy',
     title: 'Navigating the Post-ARPA Era in Early Childhood Education Through Data-Driven Decision Making',
-    href: '#',
+    href: '/resources/post-arpa-era',
   },
   {
     category: 'Families',
     title: 'ECE Search: What Modern Families Want',
-    href: '#',
+    href: '/resources/ece-search-what-modern-families-want',
   },
   {
     category: 'Policy',
     title: 'Recommendations by the Office of Child Care: The Future of Data',
-    href: '#',
+    href: '/resources/ccdf-data-changes',
   },
 ];
 
@@ -62,25 +61,20 @@ const categoryColors: Record<string, string> = {
         {resources.map((resource) => (
           <a
             href={resource.href}
-            class={`block bg-white border border-gray-100 rounded-xl p-6 hover:shadow-lg transition-shadow ${resource.href === '#' ? 'opacity-60 cursor-not-allowed' : ''}`}
+            class="group block bg-white border border-gray-100 rounded-xl p-6 hover:shadow-lg hover:border-brand-teal/20 transition-all"
           >
             <div class="flex items-start justify-between gap-4">
               <div class="flex-1">
                 <span class={`inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-3 ${categoryColors[resource.category] || 'bg-gray-100 text-gray-700'}`}>
                   {resource.category}
                 </span>
-                <h2 class="text-xl font-semibold text-brand-navy group-hover:text-brand-teal">
+                <h2 class="text-xl font-semibold text-brand-navy group-hover:text-brand-teal transition-colors">
                   {resource.title}
                 </h2>
               </div>
-              {resource.href !== '#' && (
-                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              )}
-              {resource.href === '#' && (
-                <span class="text-xs text-gray-400 flex-shrink-0">Coming Soon</span>
-              )}
+              <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
             </div>
           </a>
         ))}
