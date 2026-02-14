@@ -42,7 +42,6 @@ npm run preview  # Preview build
 
 **Rules:**
 - If a request is ambiguous, ask a clarifying question rather than guessing
-- Never modify more than one page unless explicitly asked
 - When creating pages, follow existing conventions
 
 ## Merge Rules
