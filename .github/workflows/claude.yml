@@ -27,6 +27,8 @@ jobs:
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
 
     permissions:
       contents: write

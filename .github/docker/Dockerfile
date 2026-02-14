@@ -28,8 +28,9 @@ COPY package*.json ./
 # Install npm dependencies
 RUN npm ci
 
-# Install Playwright browsers
-RUN npx playwright install chromium
+# Install Playwright browsers to a shared location
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+RUN npx playwright install chromium && chmod -R 755 /ms-playwright
 
 # Set up non-root user for security
 RUN useradd -m -s /bin/bash runner
