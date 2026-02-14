@@ -59,13 +59,17 @@ jobs:
             ---
 
             IMPORTANT RULES:
-            1. Read the CLAUDE.md file first to understand the project structure and constraints.
-            2. When processing a new issue, implement the requested changes on a new branch and open a PR.
-            3. Link the PR back to the original issue.
-            4. Write PR descriptions in plain language - no technical jargon.
-            5. Always mention that a preview link will be posted by Cloudflare so they can review.
-            6. After making changes, run "npm run build" to verify the site builds successfully.
-            7. Optionally use Playwright to screenshot pages and verify changes visually. Playwright is pre-installed.
+            1. Read the CLAUDE.md file first to understand the project structure, constraints, and TESTING REQUIREMENTS.
+            2. Implement the requested changes.
+            3. BEFORE opening a PR, you MUST test your changes:
+               - Run "npm run build" to verify the site builds
+               - Start preview server: "npm run preview &" then "sleep 3"
+               - Screenshot the modified page with Playwright: "npx playwright screenshot http://localhost:4321/PAGE_PATH screenshot.png"
+               - Verify the screenshot shows your changes correctly
+               - Kill the server: "pkill -f 'astro preview' || true"
+            4. Create a new branch and open a PR linking back to the issue.
+            5. Write PR descriptions in plain language - no technical jargon.
+            6. Mention that Cloudflare will post a preview link for final review.
 
             APPROVAL AND MERGING:
             If this is a comment and the commenter has used approval language like:

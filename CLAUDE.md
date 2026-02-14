@@ -34,6 +34,44 @@ npm run preview  # Preview build
 
 ---
 
+## Testing Before Opening a PR
+
+**Required:** Before opening a PR, you MUST:
+
+1. **Build the site** to verify no errors:
+   ```bash
+   npm run build
+   ```
+
+2. **Start the preview server and test with Playwright:**
+   ```bash
+   # Start preview server in background
+   npm run preview &
+   sleep 3
+
+   # Take screenshot of the page you modified
+   npx playwright screenshot http://localhost:4321/PAGE_PATH screenshot.png
+
+   # Check that the page loads without errors (exit code 0 = success)
+   npx playwright screenshot http://localhost:4321/PAGE_PATH /dev/null
+   ```
+
+3. **Verify your changes visually** by examining the screenshot. If something looks wrong, fix it before proceeding.
+
+4. **Kill the preview server** when done:
+   ```bash
+   pkill -f "astro preview" || true
+   ```
+
+**Page paths for testing:**
+- Homepage: `/`
+- About: `/about`
+- Contact: `/contact`
+- Case Studies: `/case-studies`
+- Resources: `/resources`
+
+---
+
 ## Scope Constraints (for GitHub Action)
 
 **Only modify:** `src/pages/`, `src/components/`, `src/layouts/`, `src/styles/`, `public/images/`
