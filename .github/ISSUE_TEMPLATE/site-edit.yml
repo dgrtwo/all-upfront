@@ -1,0 +1,10 @@
+name: Site Edit
+description: Request a change to the website
+title: "[Site Edit] "
+body:
+  - type: textarea
+    id: request
+    attributes:
+      label: What would you like changed?
+    validations:
+      required: true
