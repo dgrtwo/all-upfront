@@ -10,6 +10,10 @@ terraform {
       source  = "integrations/github"
       version = "~> 6.0"
     }
+    null = {
+      source  = "hashicorp/null"
+      version = "~> 3.0"
+    }
   }
 }
 
@@ -34,6 +38,22 @@ resource "github_actions_repository_permissions" "all_upfront" {
   repository      = "all-upfront"
   enabled         = true
   allowed_actions = "all"
+}
+
+# Enable "Allow GitHub Actions to create and approve pull requests"
+# This setting is required for claude-code-action to create PRs
+resource "null_resource" "enable_actions_pr_permissions" {
+  provisioner "local-exec" {
+    command = <<-EOT
+      curl -s -X PUT \
+        -H "Authorization: token $GITHUB_TOKEN" \
+        -H "Accept: application/vnd.github+json" \
+        https://api.github.com/repos/dgrtwo/all-upfront/actions/permissions/workflow \
+        -d '{"default_workflow_permissions":"write","can_approve_pull_request_reviews":true}'
+    EOT
+  }
+
+  depends_on = [github_actions_repository_permissions.all_upfront]
 }
 
 resource "cloudflare_pages_project" "all_upfront" {

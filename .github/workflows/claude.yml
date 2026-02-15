@@ -11,11 +11,9 @@ on:
 
 jobs:
   claude:
-    # Only run on issues/comments that might be relevant
-    # - New issues (always process)
-    # - Comments that mention @claude
+    # Only run on [Site Edit] issues or @claude comments
     if: |
-      github.event_name == 'issues' ||
+      (github.event_name == 'issues' && contains(github.event.issue.title, '[Site Edit]')) ||
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude'))
 
     runs-on: ubuntu-latest
@@ -53,45 +51,9 @@ jobs:
           show_full_output: true
           claude_args: "--model claude-sonnet-4-5-20250929 --allowedTools 'Bash(git:*),Bash(npm:*),Bash(npx:*),Bash(pkill:*),Bash(sleep:*),Bash(grep:*),Bash(cat:*),Bash(sed:*),Bash(gh:*),Bash(curl:*),Edit,Write,Read'"
           prompt: |
-            You are helping a non-technical founder make edits to their marketing website.
+            Edit the Upfront marketing site. Read CLAUDE.md for structure and rules.
 
-            CURRENT TASK:
             Issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}
-
             ${{ github.event.issue.body }}
 
-            ---
-
-            IMPORTANT RULES:
-            1. Read the CLAUDE.md file first to understand the project structure, constraints, and TESTING REQUIREMENTS.
-            2. Implement the requested changes.
-            3. BEFORE opening a PR, you MUST test your changes:
-               - Run "npm run build" to verify the site builds
-               - Start preview server in background using run_in_background:true parameter, then sleep 3
-               - Screenshot the modified page with Playwright: "npx playwright screenshot http://localhost:4321/PAGE_PATH screenshot.png"
-               - Verify the screenshot shows your changes correctly
-            4. Create a new branch and open a PR linking back to the issue.
-            5. Write PR descriptions in plain language - no technical jargon.
-            6. Mention that Cloudflare will post a preview link for final review.
-
-            APPROVAL AND MERGING:
-            If this is a comment and the commenter has used approval language like:
-            - "ship it"
-            - "looks good"
-            - "approved"
-            - "lgtm"
-            - "merge this"
-            - "go ahead"
-            - "good to go"
-            - "perfect"
-            - "great"
-            - "merge it"
-            - "let's ship"
-
-            Then you should:
-            1. Merge the PR using: gh pr merge --squash
-            2. Comment confirming the merge: "Merged! Your changes will be live at allupfront.com in a few minutes."
-
-            If the comment is NOT an approval (e.g., asking questions or requesting changes), respond helpfully and make any requested changes.
-
-            NEVER merge based on your own judgment - only merge when you detect explicit approval language from the user.
+            If this is a comment with approval ("ship it", "lgtm", "approved", etc.), merge the PR with `gh pr merge --squash`.
